@@ -1,0 +1,32 @@
+name: 'Purge Workflows'
+
+description: 'Purge old workflow runs based on time and/or name'
+
+author: Irkode
+
+inputs:
+  keep:
+    description: 'Number of days to keep'
+    mandatory: false
+    default: '90'
+  workflow:
+    description: 'Name of workflow (leave blank to purge all)'
+    mandatory: false
+    default: ''
+  token: 
+    description: 'Personal access token'
+    required: true
+  owner: 
+    description: 'Repository owner'
+    required: true
+  repo:
+    description: 'Repository name'
+    required: true
+
+outputs:
+  deleted:
+    description: 'Number of runs successfully purged.'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

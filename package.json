@@ -1,0 +1,37 @@
+{
+  "name": "purge-workflows",
+  "version": "0.1.0",
+  "description": "Purge old work workflow runs based on time and optional name",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/index.js -o dist --minify --source-map --license licenses.txt",
+    "cleanncc": "ncc cache clean",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irkode/purge-workflows.git"
+  },
+  "keywords": [
+    "GitHub",
+    "workflow",
+    "action"
+  ],
+  "author": "Irkode",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irkode/purge-workflows/issues"
+  },
+  "homepage": "https://github.com/irkode/purge-workflows#readme",
+  "dependencies": {
+    "@actions/core": "^1.8.2",
+    "@actions/github": "^5.0.3",
+    "dateformat": "^5.0.3"
+  },
+  "devDependencies": {
+    "@octokit/types": "^6.34.0",
+    "@vercel/ncc": "^0.34.0",
+    "eslint": "^8.17.0"
+  }
+}

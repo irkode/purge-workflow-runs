@@ -19,10 +19,12 @@ inputs:
     mandatory: false
   owner: 
     description: 'Repository owner'
-    required: true
+    default: ${{ github.repository_owner }}
+    mandatory: false
   repo:
     description: 'Repository name'
-    required: true
+    default: ${{ github.event.repository.name }}
+    mandatory: false
 
 outputs:
   deleted:

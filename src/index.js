@@ -1,6 +1,5 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-import dateFormat from "dateformat";
 
 async function run() {
   try {
@@ -12,9 +11,9 @@ async function run() {
 
     const keepDays = Number(keep || 10)
     var filterDate = new Date();
-    core.info(`today:    ${dateFormat(filterDate, "yyyy-mm-dd")}`);
+    core.info(`today:    ${filterDate.toISOString().slice(0, 10)}`);
     filterDate.setDate(filterDate.getDate() - keepDays)
-    const created = dateFormat(filterDate, "<yyyy-mm-dd");
+    const created = "<" + filterDate.toISOString().slice(0, 10);
     core.info(`search:   ${created}`);
     core.info(`keep:     ${keepDays}`);
     core.info(`workflow: ${workflow}`);

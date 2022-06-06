@@ -8894,16 +8894,19 @@ async function run() {
     var filterDate = new Date();
     core.info(`today:    ${dateFormat(filterDate, "yyyy-mm-dd")}`);
     filterDate.setDate(filterDate.getDate() - keepDays)
-    core.info(`search:   ${dateFormat(filterDate, "yyyy-mm-dd")}`);
+    const created = dateFormat(filterDate, "<yyyy-mm-dd");
+    core.info(`search:   ${created}`);
     core.info(`keep:     ${keepDays}`);
     core.info(`workflow: ${workflow}`);
 
+    
     const octokit = new github.getOctokit(token);
 
     octokit.paginate(octokit.rest.actions.listWorkflowRunsForRepo,
       {
         owner,
         repo,
+        created,
         status: "completed",
         per_page: 10,
       }

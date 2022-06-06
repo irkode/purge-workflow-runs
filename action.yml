@@ -15,7 +15,8 @@ inputs:
     default: ''
   token: 
     description: 'Personal access token'
-    required: true
+    default: ${{ github.token }}
+    mandatory: false
   owner: 
     description: 'Repository owner'
     required: true
